@@ -11,7 +11,8 @@ import SwiftUI
 struct meetNewCountriesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //ContentView()
+            newContinentView()
         }
     }
 }
