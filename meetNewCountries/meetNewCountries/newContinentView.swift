@@ -29,7 +29,6 @@ struct newContinentView: View {
     @Binding var numberOfCountries : Int
     @Binding var continentCode: String
     var continents = ["Africa" : "AF", "Antarcitica" : "AN", "Asia":"AS", "Europe" : "EU","North America" : "NA", "Oceania" : "NA", "South America" : "SA"]
-
     var body: some View {
         VStack{
             Image("Continent_view")
