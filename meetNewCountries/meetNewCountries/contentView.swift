@@ -2,18 +2,20 @@
 //  ContentView.swift
 //  meetNewCountries
 //
-//  Created by Konrad Tęgowski on 15/04/2023.
+//  Created by Konrad Tęgowski on 16/04/2023.
 //
 
 import SwiftUI
 
+
 struct ContentView: View {
+    @State var test = ""
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text(test)
         }
         .padding()
     }

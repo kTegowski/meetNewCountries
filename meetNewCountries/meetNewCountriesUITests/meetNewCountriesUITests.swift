@@ -2,7 +2,7 @@
 //  meetNewCountriesUITests.swift
 //  meetNewCountriesUITests
 //
-//  Created by Konrad Tęgowski on 15/04/2023.
+//  Created by Julia Szałwińska on 16/04/2023.
 //
 
 import XCTest
