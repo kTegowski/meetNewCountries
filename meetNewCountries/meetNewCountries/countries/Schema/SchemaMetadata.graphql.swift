@@ -33,6 +33,8 @@ public extension Countries {
       switch typename {
       case "Query": return Countries.Objects.Query
       case "Continent": return Countries.Objects.Continent
+      case "Country": return Countries.Objects.Country
+      case "Language": return Countries.Objects.Language
       default: return nil
       }
     }

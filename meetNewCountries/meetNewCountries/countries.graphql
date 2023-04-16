@@ -1,0 +1,25 @@
+query getContinents {
+  continents {
+    code
+    name
+  }
+}
+query getCountriesByContinent($code: String) {
+  continent(code: $code) {
+    countries {
+      name
+      code
+    }
+  }
+}
+
+query getInfoByCountry($code: String) {
+  country(code: $code) {
+    emoji
+    languages {
+      name
+    }
+    name
+    native
+  }
+}

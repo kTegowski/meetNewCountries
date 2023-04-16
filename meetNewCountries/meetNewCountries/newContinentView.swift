@@ -9,12 +9,14 @@ import SwiftUI
 struct mainView: View{
     
     @State var changeView = false
+    @State var numberOfCountries = 0
+    @State var continentCode = ""
     var body: some View{
         if changeView == false{
-            newContinentView(changeView: $changeView)
+            newContinentView(changeView: $changeView, numberOfCountries: $numberOfCountries, continentCode: $continentCode)
         }
         else{
-            CountryInfoView(changeView: $changeView)
+            CountryInfoView(changeView: $changeView, continentCode: $continentCode, numberOfCountries: $numberOfCountries)
         }
         
     }
@@ -22,8 +24,12 @@ struct mainView: View{
 }
 struct newContinentView: View {
     @State var continent = 0
-    @State var numberOfCountries = 0
+    @State var number = 0
     @Binding var changeView: Bool
+    @Binding var numberOfCountries : Int
+    @Binding var continentCode: String
+    var continents = ["Africa" : "AF", "Antarcitica" : "AN", "Asia":"AS", "Europe" : "EU","North America" : "NA", "Oceania" : "NA", "South America" : "SA"]
+
     var body: some View {
         VStack{
             Image("Continent_view")
@@ -31,23 +37,27 @@ struct newContinentView: View {
             Spacer()
             HStack{
                 Picker(selection: $continent, label: Text("Choose continent")) {
-                    Text("1").tag(1)
-                    Text("2").tag(2)//add forEach
+                    ForEach(0 ..< continents.count){
+                        value in
+                        Text(Array(continents.keys)[value])
+                    }
                 }
                 .id(continent)
                 .padding(15.0)
-                Picker(selection:$numberOfCountries, label: Text("Choose number of countries")) {
+                Picker(selection:$number, label: Text("Choose number of countries")) {
                     ForEach(2 ..< 11) {
                         Text("\($0) ")
                     }
                     
                 }
-                .id(numberOfCountries)
+                .id(number)
                 .padding(15.0)
-               
+                
             }
             Spacer()
             Button("Accept") {
+                continentCode = Array(continents.values)[continent]
+                numberOfCountries = (number+2)
                 changeView = true
             }
             .padding(.bottom, 10.0)
@@ -61,8 +71,3 @@ struct newContinentView: View {
     
     }
 
-//struct newContinentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        newContinentView()
-//    }
-//}

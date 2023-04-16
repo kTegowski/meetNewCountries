@@ -9,9 +9,12 @@ import SwiftUI
 
 struct CountryInfoView: View {
     @Binding var changeView: Bool
+    @Binding var continentCode : String
+    @Binding var numberOfCountries : Int
+    
     var body: some View {
         VStack{
-            Text("Some info")
+            Text(continentCode)
             Button("Back") {
                 changeView = false
             }
